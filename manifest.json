@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "Mocka",
+    "description": "Browser extension for mocking data in HTML inputs",
+    "version": "0.0.1",
+    "browser_action": {
+        "default_icon": "assets/icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["src/index.js"]
+        }
+    ],
+    "background": {
+        "service_worker": "src/background.js",
+        "type": "module"
+    },
+    "permissions": [
+        "activeTab",
+        "contextMenus"
+    ],
+    "icons": {
+        "16": "assets/icon.png",
+        "32": "assets/icon.png"
+    }
+}

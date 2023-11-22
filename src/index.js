@@ -6,7 +6,10 @@ document.addEventListener("contextmenu", function(event){
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if(request.value) {
-        target.value = request.value
+        const inputEvent = new Event('input', { bubbles: true });
+        
+        target.value = request.value;
+        target.dispatchEvent(inputEvent);
     }
 
     sendResponse({value: true})
